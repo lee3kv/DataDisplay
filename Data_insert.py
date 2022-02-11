@@ -1,5 +1,6 @@
 import sched, time
-from adafruit_circuitpython_bme280 import basic as adafruit_bme280
+sys.path.append('/bme280/adafruit_bme280')
+import basic as adafruit_bme280
 
 s = sched.scheduler(time.time, time.sleep)
 bme280 = adafruit_bme280.Adafruit_BME280_I2C()
