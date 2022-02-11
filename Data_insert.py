@@ -1,9 +1,9 @@
 import sched, time
-sys.path.append('/bme280/adafruit_bme280')
-import basic as adafruit_bme280
+sys.path.insert(0, '/home/code/DataDisplay/bme280/adafruit_bme280')
+# from basic as adafruit_bme280
 
 s = sched.scheduler(time.time, time.sleep)
-bme280 = adafruit_bme280.Adafruit_BME280_I2C()
+bme280 = basic.Adafruit_BME280_I2C()
 
 # change this to match the location's pressure (hPa) at sea level
 bme280.sea_level_pressure = 1013.25
