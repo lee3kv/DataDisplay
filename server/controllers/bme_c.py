@@ -44,7 +44,7 @@ def data_format():
     }
 
     # updates data with the latest values
-    update = {'$push': {bme280data}}
+    update = {'$push': bme280data}
     return update
 
 def data_upload(sc): 
