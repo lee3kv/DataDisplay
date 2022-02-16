@@ -3,7 +3,7 @@ from pymongo import MongoClient
 from adafruit_bme280 import basic as adafruit_bme280
 
 # setup for database
-cluster = MongoClient("mongodb+srv://Senior:Senior2022@cluster0.o1ezz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+cluster = MongoClient("mongodb+srv://Senior:Senior2022@cluster0.o1ezz.mongodb.net/myFirstDatabase?retryWrites=true&w=majoritysl=true&ssl_cert_reqs=CERT_NON")
 db = cluster["Data"]
 collection = db["Test"]
 # setup for scheduler
@@ -33,7 +33,7 @@ def data_upload(sc):
     }
 
     # add data to database
-    collection.bme.insertOne(bme280data)
+    collection.bme.insert_one(bme280data)
 
     # console log to show updates
     print("\nUploaded data at... {0}".format(local_time))
