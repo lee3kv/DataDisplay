@@ -16,24 +16,16 @@ bme280 = basic.Adafruit_BME280_I2C(i2c)
 # change this to match the location's pressure (hPa) at sea level
 bme280.sea_level_pressure = 1013.25
 
-# celsius to fahrenheit conversion
-def c_to_f(oldtemp):
-    newtemp = (oldtemp * (9/5)) + 32
-    return newtemp
-
 def data_format():
     # grab latest time every callback
     hour = time.strftime("%I_%M_%S", time.localtime())
     day = time.strftime("%m_%d", time.localtime())
-    
-    # change celsius to fahrenheit
-    data_format.bme280newtemp = c_to_f(bme280.temperature)
 
     # bme data schema
     bme280data = {
         day: {
             hour: {
-                "temp": bme280newtemp, 
+                "temp": bme280.temperature, 
                 "humidity": bme280.relative_humidity, 
                 "pressure": bme280.pressure,
                 "altitude": bme280.altitude
@@ -54,7 +46,7 @@ def data_upload(sc):
 
     # console log to show updates
     print("\nUploaded data at... {0}".format(local_time))
-    print("Temperature: {0} F".format(data_format.bme280newtemp))
+    print("Temperature: {0} C".format(bme280.temperature))
     print("Humidity: {0} %%".format(bme280.relative_humidity))
     print("Pressure: {0} hPa".format(bme280.pressure))
     print("Altitude: {0} meters".format(bme280.altitude))
