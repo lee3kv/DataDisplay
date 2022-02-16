@@ -48,7 +48,7 @@ def data_format():
     return update
 
 def data_upload(sc): 
-    collection.update_one({}, data_format(), {'upsert': True}) #create if dne
+    collection.update_one({}, data_format(), {'upsert': 'True'}) #create if dne
     
     # console log to show updates
     print("\nUploaded data at... {0}".format(local_time))
