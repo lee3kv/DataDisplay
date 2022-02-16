@@ -9,6 +9,10 @@ const app = express();
 
 app.use('/', post_routes)
 
+//BME Data
+const bme = require('./api/bme_a')
+app.use('/api/bme', )
+
 app.use(bodyParser.json({ limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}));
 app.use(cors()); 

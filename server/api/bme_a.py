@@ -1,23 +1,23 @@
 import sched, time, board
 from pymongo import MongoClient
-from adafruit_bme280 import basic as adafruit_bme280
+from adafruit_bme280 import basic 
 
 # setup for database
-cluster = MongoClient("mongodb+srv://Senior:Senior2022@cluster0.o1ezz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority&ssl=true&ssl_cert_reqs=CERT_NON")
+cluster = MongoClient("mongodb+srv://Senior:Senior2022@cluster0.o1ezz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 db = cluster["Data"]
 collection = db["02_16"]
 # setup for scheduler
 s = sched.scheduler(time.time, time.sleep)
 # setup for bme280
 i2c = board.I2C()
-bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)
+bme280 = basic.Adafruit_BME280_I2C(i2c)
 
 # change this to match the location's pressure (hPa) at sea level
 bme280.sea_level_pressure = 1013.25
 
 # celsius to fahrenheit conversion
 def c_to_f(oldtemp):
-    newtemp = (oldtemp × (9/5)) + 32
+    newtemp = (oldtemp * (9/5)) + 32
     return(newtemp)
 
 # setup for sending data to database every minute
