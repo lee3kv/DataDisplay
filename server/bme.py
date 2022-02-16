@@ -3,7 +3,7 @@ from pymongo import MongoClient
 from adafruit_bme280 import basic as adafruit_bme280
 
 # setup for database
-cluster = MongoClient("mongodb+srv://Senior:Senior2022@cluster0.o1ezz.mongodb.net/myFirstDatabase?retryWrites=true&w=majoritysl=true&ssl_cert_reqs=CERT_NON")
+cluster = MongoClient("mongodb+srv://Senior:Senior2022@cluster0.o1ezz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority&ssl=true&ssl_cert_reqs=CERT_NON")
 db = cluster["Data"]
 collection = db["Test"]
 # setup for scheduler
