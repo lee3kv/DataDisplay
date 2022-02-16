@@ -26,8 +26,6 @@ bme280newtemp = c_to_f(bme280.temperature)
 
 def data_format():
     # grab latest time every callback
-    seconds = time.time()
-    local_time = time.ctime(seconds)
     hour = time.strftime("%I_%M_%S", time.localtime())
     day = time.strftime("%m_%d", time.localtime())
 
@@ -50,6 +48,10 @@ def data_format():
 def data_upload(sc): 
     collection.update_one({}, data_format(), upsert=True) #create if dne
     
+    # setup for time
+    seconds = time.time()
+    local_time = time.ctime(seconds)
+
     # console log to show updates
     print("\nUploaded data at... {0}".format(local_time))
     print("Temperature: {0} F".format(bme280newtemp))
