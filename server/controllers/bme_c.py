@@ -21,13 +21,13 @@ def c_to_f(oldtemp):
     newtemp = (oldtemp * (9/5)) + 32
     return newtemp
 
-# change celsius to fahrenheit
-bme280newtemp = c_to_f(bme280.temperature)
-
 def data_format():
     # grab latest time every callback
     hour = time.strftime("%I_%M_%S", time.localtime())
     day = time.strftime("%m_%d", time.localtime())
+    
+    # change celsius to fahrenheit
+    data_format.bme280newtemp = c_to_f(bme280.temperature)
 
     # bme data schema
     bme280data = {
@@ -54,7 +54,7 @@ def data_upload(sc):
 
     # console log to show updates
     print("\nUploaded data at... {0}".format(local_time))
-    print("Temperature: {0} F".format(bme280newtemp))
+    print("Temperature: {0} F".format(data_format.bme280newtemp))
     print("Humidity: {0} %%".format(bme280.relative_humidity))
     print("Pressure: {0} hPa".format(bme280.pressure))
     print("Altitude: {0} meters".format(bme280.altitude))
