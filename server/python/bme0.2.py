@@ -45,13 +45,13 @@ def data_upload(sc):
     local_time = time.ctime(seconds)
 
     # console log to show updates
-    print("\nUploaded data at... {0}".format(local_time))
+    print("\nBME DATA UPDATED AT: {0}".format(local_time))
     print("Temperature: {0} C".format(bme280.temperature))
     print("Humidity: {0} %%".format(bme280.relative_humidity))
     print("Pressure: {0} hPa".format(bme280.pressure))
     print("Altitude: {0} meters".format(bme280.altitude))
-    # repeat every minute
-    s.enter(60, 2, data_upload, (s,))
+    # repeat every 10 seconds
+    s.enter(10, 2, data_upload, (s,))
 
 # initiates data being sent to database
 def run_data_upload():

@@ -1,10 +1,8 @@
 import express from 'express';
-// import {getPosts} from '../controllers/data_c.js'
+import {getData} from '../controllers/posts.js'
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send('THIS WORKS!')
-});
+route.get('/', getData);
 
-export default router;
+export default route;
