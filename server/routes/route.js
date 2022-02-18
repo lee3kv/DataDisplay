@@ -1,8 +1,8 @@
 import express from 'express';
-import {getData} from '../controllers/posts.js'
+import {getBmeData} from '../controllers/posts.js'
 
 const router = express.Router();
 
-route.get('/', getData);
+router.get('/', getBmeData);
 
-export default route;
+export default router;

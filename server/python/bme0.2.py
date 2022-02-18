@@ -3,8 +3,8 @@ from pymongo import MongoClient
 from adafruit_bme280 import basic 
 
 # setup for database
-cluster = MongoClient("mongodb+srv://Senior:Senior2022@cluster0.o1ezz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-db = cluster["Data"]
+client = MongoClient("mongodb+srv://Senior:Senior2022@cluster0.o1ezz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+db = client["Data"]
 collection = db["BME"]
 
 # setup for scheduler
@@ -20,6 +20,9 @@ def data_format():
     # grab latest time every callback
     hour = time.strftime("%I_%M_%S", time.localtime())
     day = time.strftime("%m_%d", time.localtime())
+
+    if(day[:1] == 0):
+        day = day[2:]
 
     # bme data schema
     bme280data = {
