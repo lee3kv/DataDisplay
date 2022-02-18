@@ -21,8 +21,8 @@ def data_format():
     hour = time.strftime("%I_%M_%S", time.localtime())
     day = time.strftime("%m_%d", time.localtime())
 
-    if(day[:1] == 0):
-        day = day[2:]
+    if(day[0] == '0'):
+        day = day[1:]
 
     # bme data schema
     bme280data = {
