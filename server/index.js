@@ -3,21 +3,17 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import mongoose from 'mongoose'
 
-import post_routes from './routes/posts.js'
+import routes from './routes/route.js'
 
 const app = express();
 
-app.use('/', post_routes)
-
-//BME Data
-const bme = require('./api/bme_a')
-app.use('/api/bme', )
+app.use('/', routes)
 
 app.use(bodyParser.json({ limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}));
 app.use(cors()); 
 
-const CONNECTION_URL = 'mongodb://localhost/database';
+const CONNECTION_URL = 'mongodb+srv://Senior:Senior2022@cluster0.o1ezz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const PORT = process.env.PORT || 3000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true})

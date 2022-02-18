@@ -20,3 +20,7 @@ bme280data = {
         }
     }
 }
+
+# updates data with the latest values
+update = {'$push': {bme280data}}
+
