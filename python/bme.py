@@ -21,14 +21,18 @@ def data_format():
     hour = time.strftime("%I_%M_%S", time.localtime())
     date = time.strftime("%m_%d", time.localtime())
 
+    if (date[0] == 0) {
+        date = date[1:]
+    }
+
     # bme data schema
     bme280data = {
         "date": date,
         "hour": hour,
         "temp": "{:.2f}".format(bme280.temperature), 
-        "humidity": "{:.2f}".format(bme280.relative_humidity),
+        "humidity": "{:.2f}".format(bme280.relative_humidity), 
         "pressure": "{:.2f}".format(bme280.pressure),
-        "altitude": "{:.2f}".format(bme280.altitude)
+        "altitude": "{:.2f}".format(bme280.altitude),
     }
 
     # updates data with the latest values
