@@ -25,10 +25,10 @@ def data_format():
     bme280data = {
         "date": date,
         "hour": hour,
-        "temp": bme280.temperature, 
-        "humidity": bme280.relative_humidity, 
-        "pressure": bme280.pressure,
-        "altitude": bme280.altitude,
+        "temp": "{:.2f}".format(bme280.temperature), 
+        "humidity": "{:.2f}".format(bme280.relative_humidity),
+        "pressure": "{:.2f}".format(bme280.pressure),
+        "altitude": "{:.2f}".format(bme280.altitude)
     }
 
     # updates data with the latest values
