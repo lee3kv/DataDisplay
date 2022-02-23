@@ -19,14 +19,14 @@ bme280.sea_level_pressure = 1013.25
 def data_format():
     # grab latest time every callback
     hour = time.strftime("%I_%M_%S", time.localtime())
-    day = time.strftime("%m_%d", time.localtime())
+    date = time.strftime("%m_%d", time.localtime())
 
-    if(day[0] == '0'):
-        day = day[1:]
+    if(date[0] == '0'):
+        date = date[1:]
 
     # bme data schema
     bme280data = {
-        "day": day,
+        "date": date,
         "hour": hour,
         "temp": bme280.temperature, 
         "humidity": bme280.relative_humidity, 
