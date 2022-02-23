@@ -24,14 +24,15 @@ def data_format():
     if(day[0] == '0'):
         day = day[1:]
 
+    date = "date" + day
     # bme data schema
     bme280data = {
-        'today'+date: {
+        date: {
             hour: {
                 "temp": bme280.temperature, 
                 "humidity": bme280.relative_humidity, 
                 "pressure": bme280.pressure,
-                "altitude": bme280.altitude
+                "altitude": bme280.altitude,
             }
         }
     }
