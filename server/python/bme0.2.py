@@ -26,12 +26,14 @@ def data_format():
 
     # bme data schema
     bme280data = {
-        "day": day,
-        "hour": hour,
-        "temp": bme280.temperature, 
-        "humidity": bme280.relative_humidity, 
-        "pressure": bme280.pressure,
-        "altitude": bme280.altitude,
+        {
+            "day": day,
+            "hour": hour,
+            "temp": bme280.temperature, 
+            "humidity": bme280.relative_humidity, 
+            "pressure": bme280.pressure,
+            "altitude": bme280.altitude,
+        }
     }
 
     # updates data with the latest values
