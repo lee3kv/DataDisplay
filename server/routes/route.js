@@ -3,6 +3,7 @@ import {getBmeData} from '../controllers/posts.js'
 
 const router = express.Router();
 
-router.get('/', getBmeData);
+router.get('/api/bme', getBmeData);
+//router.get('/api/gps', getGpsData);
 
 export default router;

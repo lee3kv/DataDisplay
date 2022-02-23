@@ -26,7 +26,7 @@ def data_format():
 
     # bme data schema
     bme280data = {
-        day: {
+        'today': {
             hour: {
                 "temp": bme280.temperature, 
                 "humidity": bme280.relative_humidity, 
