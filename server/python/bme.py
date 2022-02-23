@@ -52,7 +52,7 @@ def data_upload(sc):
     print("Pressure: {0} hPa".format(bme280.pressure))
     print("Altitude: {0} meters".format(bme280.altitude))
     # repeat every 10 seconds
-    s.enter(10, 2, data_upload, (s,))
+    s.enter(5, 2, data_upload, (s,))
 
 # initiates data being sent to database
 def run_data_upload():
