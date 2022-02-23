@@ -1,8 +1,10 @@
 import {MongoClient} from 'mongodb'
 
+export const home = (req, res) => {
+    res.send('HOME')
+}
+
 export const getBmeData = (req, res) => {
-    // const today = new Date();
-    // var date = today.getMonth()+1 + "_" + today.getDate()
     const client = new MongoClient("mongodb+srv://Senior:Senior2022@cluster0.o1ezz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
     try {
         client.connect(err => {
